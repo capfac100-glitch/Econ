@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPSC CSE 2026 - Poverty & Inequality One-Page Notes</title>
+    <!-- MathJax for rendering LaTeX equations -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #0284c7;
+            --accent-color: #d97706;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-color: #1e293b;
+            --border-color: #cbd5e1;
+            --highlight-bg: #f0f9ff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1050px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: linear-gradient(135deg, #1e3a8a, #0284c7);
+            color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 6px;
+        }
+
+        header p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* Navigation Buttons */
+        .nav-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-bottom: 20px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+            background: rgba(248, 250, 252, 0.95);
+            padding: 10px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            border: 1px solid var(--border-color);
+        }
+
+        .nav-btn {
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            padding: 8px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            background-color: var(--secondary-color);
+            color: white;
+            border-color: var(--secondary-color);
+        }
+
+        .nav-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+        }
+
+        /* Page Cards */
+        .page {
+            display: none;
+            background-color: var(--card-bg);
+            padding: 28px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+            animation: fadeIn 0.25s ease-in-out;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 6px;
+            margin-bottom: 18px;
+            font-size: 1.35rem;
+        }
+
+        h3 {
+            color: var(--secondary-color);
+            margin: 16px 0 8px 0;
+            font-size: 1.1rem;
+        }
+
+        ul, ol {
+            margin-left: 22px;
+            margin-bottom: 12px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        .flow-box {
+            background-color: var(--highlight-bg);
+            border-left: 4px solid var(--secondary-color);
+            padding: 12px 16px;
+            margin: 14px 0;
+            border-radius: 0 8px 8px 0;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.88rem;
+            overflow-x: auto;
+        }
+
+        blockquote {
+            background-color: #fffbe0;
+            border-left: 4px solid var(--accent-color);
+            padding: 10px 14px;
+            margin: 14px 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.92rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 0.88rem;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 9px 11px;
+            border: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: #f1f5f9;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        pre {
+            background: #0f172a;
+            color: #f8fafc;
+            padding: 12px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 0.82rem;
+            margin: 14px 0;
+        }
+
+        .bottom-controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 22px;
+            padding-top: 14px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .action-btn {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .action-btn:disabled {
+            background-color: #cbd5e1;
+            cursor: not-allowed;
+        }
+
+        .cite-tag {
+            font-size: 0.8em;
+            color: #0284c7;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 8px; }
+            .page { padding: 16px; }
+            .nav-btn { flex: 1 1 45%; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>UPSC CSE 2026: One-Page Topper Notes</h1>
+        <p>Topic: Economy — Poverty & Inequality (Audited & Verified)</p>
+    </header>
+
+    <!-- Navigation Bar -->
+    <div class="nav-container">
+        <button class="nav-btn active" onclick="switchPage(1)" id="btn-1">Note 1: Poverty Basics</button>
+        <button class="nav-btn" onclick="switchPage(2)" id="btn-2">Note 2: Committees</button>
+        <button class="nav-btn" onclick="switchPage(3)" id="btn-3">Note 3: SECC-2011</button>
+        <button class="nav-btn" onclick="switchPage(4)" id="btn-4">Note 4: Int'l Lines & MPI</button>
+        <button class="nav-btn" onclick="switchPage(5)" id="btn-5">Note 5: HDI & Dynamics</button>
+        <button class="nav-btn" onclick="switchPage(6)" id="btn-6">Note 6: Inequality</button>
+    </div>
+
+    <!-- PAGE 1 -->
+    <div class="page active" id="page-1">
+        <h2>ONE-PAGE NOTE 1: Poverty Fundamentals & Measurement Frameworks</h2>
+        
+        <h3>1. Multi-Dimensional Definition of Poverty</h3>
+        <ul>
+            <li><strong>Overarching Concept:</strong> Poverty is defined as the deprivation of multiple dimensions of well-being, including health, education, income, clean environment, social relations, security, and political voice[cite: 1].</li>
+            <li><strong>World Bank Definition:</strong> Pronounced deprivation in well-being, comprising:
+                <ol>
+                    <li>Inability to acquire basic goods and services necessary for survival with dignity[cite: 1].</li>
+                    <li>Low levels of health and education[cite: 1].</li>
+                    <li>Poor access to clean water and sanitation[cite: 1].</li>
+                    <li>Inadequate physical security[cite: 1].</li>
+                    <li>Lack of voice[cite: 1].</li>
+                    <li>Insufficient capacity and opportunity to improve one's life[cite: 1].</li>
+                </ol>
+            </li>
+        </ul>
+
+        <h3>2. Selection Criteria for Measurement Standards</h3>
+        <div class="flow-box">
+            Dimension Choice (Subjective) ──&gt; Criteria Standard (Subjective) ──&gt; Quantifiable Application (Objective)[cite: 1]
+        </div>
+        <ul>
+            <li><strong>Evaluating Criteria Options:</strong>
+                <ul>
+                    <li><strong>Wealth:</strong> Highly volatile and prone to incorrect reporting[cite: 1].</li>
+                    <li><strong>Income:</strong> Suffer from incorrect reporting and volatility[cite: 1].</li>
+                    <li><strong>Consumption Expenditure (Chosen Metric):</strong> Stable and yields significantly better reporting accuracy[cite: 1].</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>3. Poverty Line Basket (PLB) & Measures of Poverty</h3>
+        <ul>
+            <li><strong>Poverty Line Basket (PLB):</strong> Set on the basis of expert opinion to define essential goods and services (food, housing, clothing, transport, education, internet) needed for basic living[cite: 1]. Households that can afford this basket are classified as Non-Poor[cite: 1].</li>
+            <li><strong>Headcount Ratio (HCR):</strong> Counts <em>how many</em> are poor (number/percentage of households below the Poverty Line)[cite: 1].</li>
+            <li><strong>Depth of Poverty (Poverty Gap Index):</strong> Measures <em>how poor the poor are</em> by calculating the average shortfall distance of poor households from the Poverty Line[cite: 1].</li>
+            <li><strong>Squared Poverty Gap Index (Severity of Poverty):</strong> Squares individual poverty gaps:
+                $$\text{Squared Poverty Gap} = \frac{(GAP_1)^2 + (GAP_2)^2 + \dots + (GAP_n)^2}{N}$$
+                This method is distributionally sensitive and measures the severity of poverty by denoting the extra effort required by a person at the absolute bottom to escape poverty[cite: 1].</li>
+        </ul>
+
+        <blockquote>
+            <strong>Topper's Note:</strong> The Headcount Ratio measures absolute incidence, but the <em>Squared Poverty Gap Index</em> is crucial for policy as it measures inequality among the poor[cite: 1].
+        </blockquote>
+
+        <div class="bottom-controls">
+            <button class="action-btn" disabled>Previous</button>
+            <button class="action-btn" onclick="switchPage(2)">Next: Note 2</button>
+        </div>
+    </div>
+
+    <!-- PAGE 2 -->
+    <div class="page" id="page-2">
+        <h2>ONE-PAGE NOTE 2: Poverty Estimation Committees in India</h2>
+
+        <h3>1. Dual Purpose Framework of Measurement</h3>
+        <ul>
+            <li><strong>National Progress Tracking (Macro):</strong> Uses sampling and strict criteria to estimate overall poverty levels (being classified BPL/APL here does not directly impact individuals)[cite: 1].</li>
+            <li><strong>Beneficiary Identification (Micro):</strong> Uses targeted scheme-specific criteria (e.g., SECC) to eliminate inclusion and exclusion errors in welfare delivery[cite: 1].</li>
+        </ul>
+
+        <h3>2. Pre-Independence Estimations</h3>
+        <ul>
+            <li><strong>Dadabhai Naoroji:</strong> Formulated the earliest poverty line based on the concept of <em>Jail Cost of Living</em>[cite: 1].</li>
+            <li><strong>National Planning Committee (1938) & Bombay Plan (1944):</strong> Initiated structural planning for minimum living standards[cite: 1].</li>
+        </ul>
+
+        <h3>3. Post-Independence Committees Matrix</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Committee</th>
+                    <th>Year</th>
+                    <th>Methodology & Key Innovations</th>
+                    <th>Poverty Line Norms & Outcome</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Dandekar & Rath</strong></td>
+                    <td>1971</td>
+                    <td>Food-based Poverty Line Basket anchored to caloric consumption ability[cite: 1].</td>
+                    <td>2,200 calories / person / day[cite: 1].</td>
+                </tr>
+                <tr>
+                    <td><strong>Y.K. Alagh</strong></td>
+                    <td>1979</td>
+                    <td>Introduced separate calorie-based baskets for rural and urban areas[cite: 1].</td>
+                    <td><strong>Rural:</strong> 2,400 cal/person/day[cite: 1]<br><strong>Urban:</strong> 2,000 cal/person/day[cite: 1].</td>
+                </tr>
+                <tr>
+                    <td><strong>Lakdawala</strong></td>
+                    <td>1993–94</td>
+                    <td>Radically expanded PLB to include clothing, shelter, transport[cite: 1]. Created state-level disaggregated poverty lines updated using CPI-AL (Rural) and CPI-IW (Urban)[cite: 1].</td>
+                    <td>Constructed state-specific poverty lines for a household of 5 members[cite: 1].</td>
+                </tr>
+                <tr>
+                    <td><strong>Suresh Tendulkar</strong></td>
+                    <td>2005</td>
+                    <td>Shifted away from calorie consumption[cite: 1]. Uniform PLB across rural/urban India[cite: 1]. Included private health & education expenditure[cite: 1]. Adopted <strong>Mixed Recall Period (MRP)</strong>[cite: 1].</td>
+                    <td>Estimated poverty at 21.9% (2011–12)[cite: 1]. Triggered the ₹32/person/day controversy[cite: 1].</td>
+                </tr>
+                <tr>
+                    <td><strong>C. Rangarajan</strong></td>
+                    <td>2011–14</td>
+                    <td>Restored rural/urban separation[cite: 1]. Combined Normative ICMR food norms (calories, proteins, fats) + Behavioural non-food expenditure + Ability to save (median decile)[cite: 1]. Adopted <strong>Modified Mixed Recall Period (MMRP)</strong>[cite: 1].</td>
+                    <td><strong>Rural:</strong> ₹4,800/HH/month (~₹32/day)[cite: 1]<br><strong>Urban:</strong> ₹7,015/HH/month (~₹47/day)[cite: 1].</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="flow-box">
+            Evolution: Calorie Focus (Alagh/Lakdawala) ──&gt; Health & Education Focus (Tendulkar) ──&gt; MMRP + ICMR Norms (Rangarajan)[cite: 1]
+        </div>
+
+        <div class="bottom-controls">
+            <button class="action-btn" onclick="switchPage(1)">Previous: Note 1</button>
+            <button class="action-btn" onclick="switchPage(3)">Next: Note 3</button>
+        </div>
+    </div>
+
+    <!-- PAGE 3 -->
+    <div class="page" id="page-3">
+        <h2>ONE-PAGE NOTE 3: SECC-2011 & Beneficiary Identification</h2>
+
+        <h3>1. Population Census vs. SECC-2011</h3>
+        <ul>
+            <li><strong>Population Census:</strong> Strictly confidential data; used for macro demographic analysis[cite: 1].</li>
+            <li><strong>SECC-2011:</strong> Open administrative dataset displayed publicly by Gram Sabhas to verify beneficiary eligibility for government schemes[cite: 1].</li>
+            <li><strong>Nodal Administrative Bodies:</strong> Rural SECC (Ministry of Rural Development); Urban SECC (Ministry of Housing and Urban Affairs); Caste Component (Ministry of Home Affairs - RGI)[cite: 1].</li>
+        </ul>
+
+        <h3>2. Rural SECC Architecture & Data Breakdown</h3>
+<pre>
+                                  ┌── Automatically Included (15.95 Lakh HHs / 0.89%)[cite: 1]
+                                  │
+Rural Households (SECC 2011) ─────┼── Automatically Excluded (7.07 Crore HHs / 39.35%)[cite: 1]
+                                  │
+                                  └── Deprived Households (Evaluated across D1 to D7 Parameters)[cite: 1]
+</pre>
+
+        <ul>
+            <li><strong>Automatic Inclusion Criteria (0.89% / 15.95 Lakh HHs):</strong> Automatically eligible for schemes if fulfilling any of 5 parameters:
+                <ol>
+                    <li>Households without shelter[cite: 1].</li>
+                    <li>Destitute, living on alms[cite: 1].</li>
+                    <li>Manual scavenger families[cite: 1].</li>
+                    <li>Primitive Tribal Groups (PVTGs)[cite: 1].</li>
+                    <li>Legally released bonded labour[cite: 1].</li>
+                </ol>
+            </li>
+            <li style="margin-top:8px;"><strong>Automatic Exclusion Criteria (39.35% / 7.07 Crore HHs):</strong> Excluded if fulfilling any of 14 parameters (e.g., motorized vehicles, mechanized agri equipment, KCC limit > ₹50,000, govt employee, registered non-agri enterprise, earning > ₹10,000/month, paying income/professional tax, 3+ pucca rooms, refrigerator, landline, landholding limits)[cite: 1].</li>
+            <li style="margin-top:8px;"><strong>Seven Deprivation Parameters (D1 to D7):</strong>
+                <ul>
+                    <li><strong>D1 (13.28% / 2.38 Cr):</strong> Households with one or less room, kuccha walls and kuccha roof[cite: 1].</li>
+                    <li><strong>D2 (3.64% / 65.33 Lakh):</strong> No adult member in household between age 16 and 59[cite: 1].</li>
+                    <li><strong>D3 (23.52% / 4.22 Cr):</strong> Households with no literate adult above age 25 years[cite: 1].</li>
+                    <li><strong>D4 (0.40% / 7.20 Lakh):</strong> Households with differently abled member and no other able-bodied adult[cite: 1].</li>
+                    <li><strong>D5 (21.56% / 3.87 Cr):</strong> SC/ST Households[cite: 1].</li>
+                    <li><strong>D6 (3.86% / 69.43 Lakh):</strong> Female headed household with no adult male member between 16 and 59[cite: 1].</li>
+                    <li><strong>D7 (30.04% / 5.40 Cr):</strong> Landless households deriving major part of income from manual casual labour[cite: 1].</li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="bottom-controls">
+            <button class="action-btn" onclick="switchPage(2)">Previous: Note 2</button>
+            <button class="action-btn" onclick="switchPage(4)">Next: Note 4</button>
+        </div>
+    </div>
+
+    <!-- PAGE 4 -->
+    <div class="page" id="page-4">
+        <h2>ONE-PAGE NOTE 4: International Poverty Lines, SDGs & MPI</h2>
+
+        <h3>1. World Bank Income Tiers & International Poverty Lines</h3>
+        <ul>
+            <li><strong>Country Income Classification (July 1, 2025 update for FY26 - GNI Per Capita):</strong>
+                <ul>
+                    <li><strong>Low Income (LIC):</strong> \(\le \$1,135\)[cite: 1].</li>
+                    <li><strong>Lower-Middle Income (LMIC):</strong> \(\$1,136 - \$4,495\)[cite: 1].</li>
+                    <li><strong>Upper-Middle Income (UMIC):</strong> \(\$4,496 - \$13,935\)[cite: 1].</li>
+                    <li><strong>High Income (HIC):</strong> \(&gt; \$13,935\)[cite: 1].</li>
+                </ul>
+            </li>
+            <li><strong>International Poverty Lines (PPPDCE - Purchasing Power Parity):</strong>
+                <ul>
+                    <li><strong>2017 PPP Lines (2022 Data):</strong> Extreme Poverty (LIC) = $2.15; LMIC = $3.65; UMIC = $6.85[cite: 1].</li>
+                    <li><strong>2021 PPP Lines (2025 Update):</strong> Extreme Poverty (LIC) = $3.00; LMIC = $4.20; UMIC = $8.30[cite: 1].</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>2. MDGs to SDGs Evolution</h3>
+        <ul>
+            <li><strong>MDGs (2000–2015):</strong> 8 goals approved by UNGA[cite: 1]. MDG 1 targeted eradicating extreme poverty and hunger[cite: 1].</li>
+            <li><strong>SDGs (2015–2030):</strong> Agreed at Rio+20 (2012) and adopted at UN Summit 2015 (New York)[cite: 1]. Comprises 17 Goals and 169 Targets[cite: 1].
+                <ul>
+                    <li><strong>SDG Goal 1:</strong> No Poverty — completely eliminate extreme poverty by 2030[cite: 1].</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>3. Multidimensional Poverty Index (MPI) Framework</h3>
+        <ul>
+            <li><strong>Global MPI (OPHI & UNDP):</strong> 3 Dimensions (Health \(\frac{1}{3}\), Education \(\frac{1}{3}\), Standard of Living \(\frac{1}{3}\)) and 10 Indicators[cite: 1]. Deprivation score \(\ge 33.33\%\) (\(\frac{1}{3}\)) classifies a household as MPI Poor[cite: 1]. Uses <strong>Alkire Foster Methodology</strong>:
+                $$\text{MPI} = H \times A \quad (\text{Headcount Ratio } H \times \text{Intensity of Poverty } A)$$[cite: 1]
+            </li>
+            <li><strong>India's National MPI (NITI Aayog):</strong> Uses NFHS data and adds 2 indicators (Total 12 indicators)[cite: 1]:</li>
+        </ul>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Dimension</th>
+                    <th>Indicator</th>
+                    <th>Global Weight</th>
+                    <th>National MPI Weight (NITI Aayog)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Health</strong> (\(\frac{1}{3}\))</td>
+                    <td>• Nutrition<br>• Child & Adolescent Mortality<br>• <em>Antenatal Care (Added)</em></td>
+                    <td>\(\frac{1}{6}\)<br>\(\frac{1}{6}\)<br>—</td>
+                    <td>\(\frac{1}{12}\)<br>\(\frac{1}{12}\)<br>\(\frac{1}{12}\)[cite: 1]</td>
+                </tr>
+                <tr>
+                    <td><strong>Education</strong> (\(\frac{1}{3}\))</td>
+                    <td>• Years of Schooling<br>• School Attendance</td>
+                    <td>\(\frac{1}{6}\)<br>\(\frac{1}{6}\)</td>
+                    <td>\(\frac{1}{6}\)<br>\(\frac{1}{6}\)[cite: 1]</td>
+                </tr>
+                <tr>
+                    <td><strong>Standard of Living</strong> (\(\frac{1}{3}\))</td>
+                    <td>• Cooking Fuel, Sanitation, Water, Electricity, Housing, Assets<br>• <em>Bank Account (Added)</em></td>
+                    <td>\(\frac{1}{18}\) each (6 indicators)</td>
+                    <td>\(\frac{1}{21}\) each (7 indicators)[cite: 1]</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="bottom-controls">
+            <button class="action-btn" onclick="switchPage(3)">Previous: Note 3</button>
+            <button class="action-btn" onclick="switchPage(5)">Next: Note 5</button>
+        </div>
+    </div>
+
+    <!-- PAGE 5 -->
+    <div class="page" id="page-5">
+        <h2>ONE-PAGE NOTE 5: Human Development Framework & Indian Dynamics</h2>
+
+        <h3>1. Human Development Index (HDI) Paradigm</h3>
+        <ul>
+            <li><strong>4 Pillars:</strong> Equity, Sustainability, Productivity, Empowerment[cite: 1].</li>
+            <li><strong>Approaches:</strong> Income, Welfare, Basic Needs (ILO: Health, Education, Food, Water supply, Sanitation, Housing), Capability Approach (Amartya Sen)[cite: 1].</li>
+            <li><strong>HDI Calculation (UNDP HDR):</strong> Geometric mean of 3 dimension indices:
+                $$\text{HDI} = \sqrt[3]{H \times E \times S}$$
+                <em>Health (Life Expectancy at Birth), Education (Mean & Expected Years of Schooling), Standard of Living (GNI per capita PPP)</em>[cite: 1].
+            </li>
+            <li><strong>India HDR 2022 Statistics:</strong>
+                <ul>
+                    <li><strong>HDI Value:</strong> 0.644 (Rank 134/193 - Medium HDI)[cite: 1].</li>
+                    <li><strong>IHDI (Inequality-adjusted HDI):</strong> 0.444 (31.1% loss due to inequality)[cite: 1].</li>
+                    <li><strong>GDI (Gender Development Index):</strong> \(\frac{\text{Female HDI}}{\text{Male HDI}} = \frac{0.582}{0.684} = 0.862\) (Group 5)[cite: 1].</li>
+                    <li><strong>GII (Gender Inequality Index):</strong> 0.437 (Rank 108/166)[cite: 1]. Dimensions: Health (MMR, Adolescent birth rate), Empowerment (Parliamentary seats, Secondary education), Labour market participation[cite: 1].</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>2. India's Poverty Reduction Dynamics</h3>
+        <ul>
+            <li><strong>Tendulkar Poverty Line Trajectory:</strong>
+                <p>1950 (56%) &rarr; 1993–94 (45%) &rarr; 2004–05 (37.2%) &rarr; 2009–10 (29.8%) &rarr; 2011–12 (21.9%) &rarr; <strong>2022–23: 0.9%</strong>[cite: 1].</p>
+            </li>
+            <li><strong>World Bank Poverty & Equity Brief (India Updates):</strong>
+                <ul>
+                    <li><strong>$2.15 Line (Extreme Poverty):</strong> 16.22% (2011–12) &rarr; <strong>2.35%</strong> (~33.6M people in 2022–23)[cite: 1].</li>
+                    <li><strong>$3.00 Line (2021 PPP):</strong> 27.12% (2011–12) &rarr; <strong>5.25%</strong> (~75.2M people in 2022–23)[cite: 1].</li>
+                    <li><strong>Rural Extreme Poverty ($2.15):</strong> 18.4% (FY12) &rarr; 2.8% (FY21) &rarr; <strong>1.1%</strong> (FY23)[cite: 1].</li>
+                    <li><strong>Urban Extreme Poverty ($2.15):</strong> 10.7% (FY12) &rarr; <strong>1.1%</strong> (FY23)[cite: 1].</li>
+                    <li><strong>LMIC Line ($3.65 Line):</strong> Declined from 53% to <strong>28.1%</strong> in 2022–23 (Rural: 61.8% &rarr; 28.1%; Urban: 43.5% &rarr; 17.2%)[cite: 1].</li>
+                    <li><strong>Key Drivers:</strong> 5 States (UP, MP, Maharashtra, WB, Bihar) hosted 65% of extreme poor in 2011–12 and contributed \(\frac{2}{3}\text{rd}\) of overall poverty reduction by 2022–23[cite: 1].</li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="bottom-controls">
+            <button class="action-btn" onclick="switchPage(4)">Previous: Note 4</button>
+            <button class="action-btn" onclick="switchPage(6)">Next: Note 6</button>
+        </div>
+    </div>
+
+    <!-- PAGE 6 -->
+    <div class="page" id="page-6">
+        <h2>ONE-PAGE NOTE 6: Inequality Concepts, Theories & Metrics</h2>
+
+        <h3>1. Causes & Theories of Inequality</h3>
+        <ul>
+            <li><strong>Manifestations:</strong> Economic, Social, Political[cite: 1]. Driven by natural factors, political access, and the <strong>Resource Curse</strong> (resource-rich areas failing to develop due to misgovernance and fractured society)[cite: 1].</li>
+            <li><strong>Marxist Theory (Karl Marx - <em>Das Kapital</em>):</strong> Society splits into Bourgeoisie (capital/land owners) and Proletariat (laborers)[cite: 1]. Rate of return on capital exceeds return on labor (\(r &gt; g\)), causing profits to grow exponentially while wages remain stagnant[cite: 1].</li>
+            <li><strong>Modern Economic Theory:</strong> Contradicts Marx over the long run; wages and profits grow at comparable rates[cite: 1]. Short-term inequality stems from failure of firm survival, entry barriers, unfair practices, and lack of <strong>Rule of Law</strong>[cite: 1].</li>
+        </ul>
+
+        <h3>2. Quantitative Measurement of Inequality</h3>
+        <ul>
+            <li><strong>Lorenz Curve:</strong> Graphs cumulative percentage of total national income against cumulative percentage of population[cite: 1].</li>
+            <li><strong>Gini Coefficient:</strong> Derived from the Lorenz Curve:
+                $$\text{Gini Coefficient} = \frac{a}{a + b}$$
+                <em>Where \(a\) is the area between Line of Absolute Equality and Lorenz Curve, and \(a+b\) is the total area under the Line of Equality</em>[cite: 1].
+                <ul>
+                    <li>\(\text{Gini} = 0\): Perfect Equality[cite: 1].</li>
+                    <li>\(\text{Gini} = 1\): Perfect Inequality[cite: 1].</li>
+                </ul>
+            </li>
+            <li><strong>India's Consumption Gini Index:</strong> Improved from <strong>28.8</strong> (2011–12) to <strong>25.5</strong> (2022–23) based on HCES data, placing India among the world's most equal societies in consumption[cite: 1].</li>
+        </ul>
+
+        <h3>3. Growth Models Comparison</h3>
+        <div class="flow-box">
+            Trickle-Down Model: Focus High Growth ──&gt; Collect Tax Revenue ──&gt; Redistribution to Passive Recipients[cite: 1]<br>
+            Inclusive Growth Model: Skill & Capacity Building ──&gt; Jobs & Opportunities ──&gt; Active Economic Contributors[cite: 1]
+        </div>
+
+        <div class="bottom-controls">
+            <button class="action-btn" onclick="switchPage(5)">Previous: Note 5</button>
+            <button class="action-btn" disabled>Next</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function switchPage(pageNum) {
+        // Hide all pages
+        const pages = document.querySelectorAll('.page');
+        pages.forEach(page => page.classList.remove('active'));
+
+        // Deactivate all navigation buttons
+        const buttons = document.querySelectorAll('.nav-btn');
+        buttons.forEach(btn => btn.classList.remove('active'));
+
+        // Activate target page and button
+        document.getElementById('page-' + pageNum).classList.add('active');
+        document.getElementById('btn-' + pageNum).classList.add('active');
+
+        // Scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        // Re-render MathJax equations dynamically
+        if (window.MathJax) {
+            MathJax.typesetPromise();
+        }
+    }
+</script>
+
+</body>
+</html>
