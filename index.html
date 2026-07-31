@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UPSC CSE 2026 - Economy: Poverty, Inequality & Unemployment Notes</title>
+    <title>Cornell Notes - UPSC CSE Economy (Poverty, Inequality & Labour)</title>
     <!-- MathJax for rendering LaTeX equations -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
         :root {
-            --primary-color: #1e3a8a;
+            --primary-color: #0f172a;
             --secondary-color: #0284c7;
             --accent-color: #d97706;
-            --bg-color: #f8fafc;
+            --bg-color: #f1f5f9;
             --card-bg: #ffffff;
-            --text-color: #1e293b;
-            --border-color: #cbd5e1;
+            --text-color: #0f172a;
+            --border-color: #0f172a; /* Solid borders matching Cornell template */
             --highlight-bg: #f0f9ff;
+            --accent-yellow: #fef08a;
         }
 
         * {
@@ -26,63 +27,40 @@
             font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
         }
 
-        /* Strict Requirement: Global Font Size 14px */
+        /* Strict Requirement: Font size 14px globally */
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
             font-size: 14px;
-            line-height: 1.6;
+            line-height: 1.5;
             padding: 16px;
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1250px;
             margin: 0 auto;
         }
 
-        header {
-            text-align: center;
-            margin-bottom: 20px;
-            padding: 20px;
-            background: linear-gradient(135deg, #1e3a8a, #0284c7);
-            color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-
-        header h1 {
-            font-size: 1.6rem;
-            margin-bottom: 4px;
-        }
-
-        header p {
-            font-size: 14px;
-            opacity: 0.95;
-        }
-
-        /* Navigation Buttons */
+        /* Top Navigation Bar */
         .nav-container {
             display: flex;
             flex-wrap: wrap;
             gap: 6px;
             justify-content: center;
-            margin-bottom: 20px;
-            position: sticky;
-            top: 10px;
-            z-index: 100;
-            background: rgba(248, 250, 252, 0.95);
+            margin-bottom: 16px;
+            background: #ffffff;
             padding: 10px;
-            border-radius: 10px;
-            backdrop-filter: blur(5px);
-            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            border: 2px solid var(--border-color);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
 
         .nav-btn {
-            background-color: var(--card-bg);
-            color: var(--text-color);
+            background-color: #f8fafc;
+            color: var(--primary-color);
             border: 1px solid var(--border-color);
             padding: 6px 12px;
-            border-radius: 6px;
+            border-radius: 4px;
             cursor: pointer;
             font-weight: 600;
             font-size: 14px;
@@ -92,54 +70,155 @@
         .nav-btn:hover {
             background-color: var(--secondary-color);
             color: white;
-            border-color: var(--secondary-color);
         }
 
         .nav-btn.active {
             background-color: var(--primary-color);
             color: white;
             border-color: var(--primary-color);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.15);
         }
 
-        /* Page Cards */
+        /* Cornell Sheet Layout Template */
+        .cornell-sheet {
+            background-color: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 4px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        /* Cornell Header: Name, Date, Topic */
+        .sheet-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border-color);
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .sheet-header div {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sheet-header input {
+            border: none;
+            border-bottom: 1px solid var(--border-color);
+            padding: 2px 6px;
+            font-size: 14px;
+            outline: none;
+            background: transparent;
+        }
+
+        /* Cornell Body Split: Left Key Points (30%), Right Details (70%) */
+        .sheet-body {
+            display: flex;
+            min-height: 560px;
+            border: 2px solid var(--border-color);
+        }
+
+        /* Left Column: Key Points / Cues Box (Editable) */
+        .key-points-column {
+            width: 30%;
+            border-right: 2px solid var(--border-color);
+            background-color: #fafafa;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .column-header {
+            background-color: #f1f5f9;
+            padding: 8px 12px;
+            font-weight: 800;
+            font-size: 14px;
+            border-bottom: 2px solid var(--border-color);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .cue-textarea {
+            width: 100%;
+            height: 100%;
+            flex-grow: 1;
+            padding: 12px;
+            border: none;
+            outline: none;
+            resize: none;
+            font-size: 14px;
+            line-height: 1.6;
+            background: repeating-linear-gradient(
+                transparent,
+                transparent 27px,
+                #e2e8f0 28px
+            );
+            background-attachment: local;
+        }
+
+        /* Right Column: Details / Topper Notes Box (70% Width) */
+        .details-column {
+            width: 70%;
+            padding: 16px;
+            overflow-y: auto;
+            max-height: 650px;
+            background-color: var(--card-bg);
+            font-size: 14px;
+        }
+
+        /* Bottom Row: Summary Box (Editable) */
+        .summary-section {
+            border: 2px solid var(--border-color);
+            background-color: #fafafa;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .summary-textarea {
+            width: 100%;
+            min-height: 90px;
+            padding: 10px 12px;
+            border: none;
+            outline: none;
+            resize: vertical;
+            font-size: 14px;
+            line-height: 1.5;
+            background-color: transparent;
+        }
+
+        /* Content Formatting Inside Pages */
         .page {
             display: none;
-            background-color: var(--card-bg);
-            padding: 26px;
-            border-radius: 10px;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            margin-bottom: 20px;
-            animation: fadeIn 0.25s ease-in-out;
         }
 
         .page.active {
             display: block;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(4px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
         h2 {
             color: var(--primary-color);
             border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 6px;
-            margin-bottom: 16px;
-            font-size: 1.25rem;
+            padding-bottom: 4px;
+            margin-bottom: 12px;
+            font-size: 16px;
         }
 
         h3 {
             color: var(--secondary-color);
-            margin: 16px 0 8px 0;
-            font-size: 1rem;
+            margin: 12px 0 6px 0;
+            font-size: 14px;
+            font-weight: 700;
         }
 
         ul, ol {
-            margin-left: 20px;
-            margin-bottom: 12px;
+            margin-left: 18px;
+            margin-bottom: 10px;
             font-size: 14px;
         }
 
@@ -156,809 +235,402 @@
         .flow-box {
             background-color: var(--highlight-bg);
             border-left: 4px solid var(--secondary-color);
-            padding: 10px 14px;
-            margin: 12px 0;
-            border-radius: 0 6px 6px 0;
+            padding: 8px 12px;
+            margin: 10px 0;
             font-family: 'Courier New', Courier, monospace;
-            font-size: 14px;
+            font-size: 13.5px;
             overflow-x: auto;
         }
 
         blockquote {
-            background-color: #fffbe0;
-            border-left: 4px solid var(--accent-color);
-            padding: 10px 14px;
-            margin: 12px 0;
-            border-radius: 0 6px 6px 0;
-            font-size: 14px;
+            background-color: var(--accent-yellow);
+            border-left: 4px solid var(--primary-color);
+            padding: 8px 12px;
+            margin: 10px 0;
+            font-size: 13.5px;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 14px 0;
-            font-size: 14px;
+            margin: 12px 0;
+            font-size: 13.5px;
         }
 
         th, td {
             text-align: left;
-            padding: 8px 10px;
+            padding: 6px 8px;
             border: 1px solid var(--border-color);
-            font-size: 14px;
+            font-size: 13.5px;
         }
 
         th {
             background-color: #f1f5f9;
-            color: var(--primary-color);
-            font-weight: 700;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f8fafc;
+            font-weight: bold;
         }
 
         pre {
             background: #0f172a;
             color: #f8fafc;
-            padding: 12px;
-            border-radius: 6px;
+            padding: 10px;
+            border-radius: 4px;
             overflow-x: auto;
-            font-size: 14px;
-            margin: 12px 0;
+            font-size: 13px;
+            margin: 10px 0;
             font-family: monospace;
         }
 
-        .bottom-controls {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-            padding-top: 12px;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .action-btn {
-            background-color: var(--secondary-color);
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        .action-btn:disabled {
-            background-color: #cbd5e1;
-            cursor: not-allowed;
-        }
-
-        .section-tag {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 2px 8px;
-            border-radius: 4px;
+        .status-bar {
             font-size: 12px;
-            margin-bottom: 8px;
-            font-weight: bold;
+            color: #64748b;
+            text-align: right;
+            padding: 4px 10px;
         }
 
-        @media (max-width: 600px) {
-            body { padding: 8px; font-size: 14px; }
-            .page { padding: 14px; }
-            .nav-btn { flex: 1 1 45%; text-align: center; font-size: 13px; }
+        @media (max-width: 768px) {
+            .sheet-body {
+                flex-direction: column;
+            }
+            .key-points-column, .details-column {
+                width: 100%;
+            }
+            .key-points-column {
+                border-right: none;
+                border-bottom: 2px solid var(--border-color);
+                min-height: 200px;
+            }
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    header>
-        <h1>UPSC CSE 2026: Unified Topper Notes</h1>
-        <p>Comprehensive Coverage: Poverty, Inequality & Unemployment (Strict Font Size 14)</p>
-    </header>
 
-    <!-- Navigation Buttons (Notes 1 to 12) -->
+    <!-- Top Page Navigation -->
     <div class="nav-container">
-        <!-- Module 1: Poverty & Inequality -->
         <button class="nav-btn active" onclick="switchPage(1)" id="btn-1">Note 1: Poverty Basics</button>
         <button class="nav-btn" onclick="switchPage(2)" id="btn-2">Note 2: Poverty Committees</button>
         <button class="nav-btn" onclick="switchPage(3)" id="btn-3">Note 3: SECC-2011</button>
         <button class="nav-btn" onclick="switchPage(4)" id="btn-4">Note 4: Int'l Lines & MPI</button>
         <button class="nav-btn" onclick="switchPage(5)" id="btn-5">Note 5: HDI & Poverty</button>
         <button class="nav-btn" onclick="switchPage(6)" id="btn-6">Note 6: Inequality Metrics</button>
-        <!-- Module 2: Unemployment, Skilling & Labour Laws -->
         <button class="nav-btn" onclick="switchPage(7)" id="btn-7">Note 7: UE Measurement</button>
         <button class="nav-btn" onclick="switchPage(8)" id="btn-8">Note 8: UE Types & Dynamics</button>
         <button class="nav-btn" onclick="switchPage(9)" id="btn-9">Note 9: Skilling Architecture</button>
-        <button class="nav-btn" onclick="switchPage(10)" id="btn-10">Note 10: Formalisation & Dwarfism</button>
-        <button class="nav-btn" onclick="switchPage(11)" id="btn-11">Note 11: Gig Economy & Classifications</button>
+        <button class="nav-btn" onclick="switchPage(10)" id="btn-10">Note 10: Formalisation</button>
+        <button class="nav-btn" onclick="switchPage(11)" id="btn-11">Note 11: Gig Economy</button>
         <button class="nav-btn" onclick="switchPage(12)" id="btn-12">Note 12: 4 Labour Codes</button>
     </div>
 
-    <!-- MODULE 1: POVERTY & INEQUALITY -->
-
-    <!-- PAGE 1 -->
-    <div class="page active" id="page-1">
-        <span class="section-tag">MODULE 1: POVERTY & INEQUALITY</span>
-        <h2>ONE-PAGE NOTE 1: Poverty Fundamentals & Measurement Frameworks</h2>
+    <!-- Cornell Sheet Design Template -->
+    <div class="cornell-sheet">
         
-        <h3>1. Multi-Dimensional Definition of Poverty</h3>
-        <ul>
-            <li><strong>Overarching Concept:</strong> Poverty is defined as the deprivation of multiple dimensions of well-being, including health, education, income, clean environment, social relations, security, and political voice[cite: 1, 3].</li>
-            <li><strong>World Bank Definition:</strong> Pronounced deprivation in well-being, comprising:
-                <ol>
-                    <li>Inability to acquire basic goods and services necessary for survival with dignity[cite: 1, 3].</li>
-                    <li>Low levels of health and education[cite: 1, 3].</li>
-                    <li>Poor access to clean water and sanitation[cite: 1, 3].</li>
-                    <li>Inadequate physical security[cite: 1, 3].</li>
-                    <li>Lack of voice[cite: 1, 3].</li>
-                    <li>Insufficient capacity and opportunity to improve one's life[cite: 1, 3].</li>
-                </ol>
-            </li>
-        </ul>
-
-        <h3>2. Selection Criteria for Measurement Standards</h3>
-        <div class="flow-box">
-            Dimension Choice (Subjective) ──&gt; Criteria Standard (Subjective) ──&gt; Quantifiable Application (Objective)[cite: 1, 3]
-        </div>
-        <ul>
-            <li><strong>Evaluating Criteria Options:</strong>
-                <ul>
-                    <li><strong>Wealth:</strong> Highly volatile and prone to incorrect reporting[cite: 1, 3].</li>
-                    <li><strong>Income:</strong> Suffers from incorrect reporting and volatility[cite: 1, 3].</li>
-                    <li><strong>Consumption Expenditure (Chosen Metric):</strong> Stable over time and yields significantly better reporting accuracy[cite: 1, 3].</li>
-                </ul>
-            </li>
-        </ul>
-
-        <h3>3. Poverty Line Basket (PLB) & Measures of Poverty</h3>
-        <ul>
-            <li><strong>Poverty Line Basket (PLB):</strong> Set on the basis of expert opinion to define essential goods and services (food, housing, clothing, transport, education, internet) needed for basic living[cite: 1, 3]. Households that can afford this basket are classified as Non-Poor[cite: 1, 3].</li>
-            <li><strong>Headcount Ratio (HCR):</strong> Counts <em>how many</em> are poor (number or percentage of households below the Poverty Line)[cite: 1, 3].</li>
-            <li><strong>Depth of Poverty (Poverty Gap Index):</strong> Measures <em>how poor the poor are</em> by calculating the average shortfall distance of poor households from the Poverty Line[cite: 1, 3].</li>
-            <li><strong>Squared Poverty Gap Index (Severity of Poverty):</strong> Squares individual poverty gaps:
-                $$\text{Squared Poverty Gap} = \frac{(GAP_1)^2 + (GAP_2)^2 + \dots + (GAP_n)^2}{N}$$
-                This method is distributionally sensitive and measures the severity of poverty by denoting the extra effort required by a person at the absolute bottom to escape poverty[cite: 1, 3].</li>
-        </ul>
-
-        <blockquote>
-            <strong>Topper's Note:</strong> The Headcount Ratio measures absolute incidence, but the <em>Squared Poverty Gap Index</em> is crucial for policy as it measures inequality among the poor[cite: 1, 3].
-        </blockquote>
-
-        <div class="bottom-controls">
-            <button class="action-btn" disabled>Previous</button>
-            <button class="action-btn" onclick="switchPage(2)">Next: Note 2</button>
-        </div>
-    </div>
-
-    <!-- PAGE 2 -->
-    <div class="page" id="page-2">
-        <span class="section-tag">MODULE 1: POVERTY & INEQUALITY</span>
-        <h2>ONE-PAGE NOTE 2: Poverty Estimation Committees in India</h2>
-
-        <h3>1. Dual Purpose Framework of Measurement</h3>
-        <ul>
-            <li><strong>National Progress Tracking (Macro):</strong> Uses sampling and strict criteria to estimate overall poverty levels (being classified BPL/APL here does not directly impact individuals)[cite: 1, 3].</li>
-            <li><strong>Beneficiary Identification (Micro):</strong> Uses targeted scheme-specific criteria (e.g., SECC) to eliminate inclusion and exclusion errors in welfare delivery[cite: 1, 3].</li>
-        </ul>
-
-        <h3>2. Pre-Independence Estimations</h3>
-        <ul>
-            <li><strong>Dadabhai Naoroji:</strong> Formulated the earliest poverty line based on the concept of <em>Jail Cost of Living</em>[cite: 1, 3].</li>
-            <li><strong>National Planning Committee (1938) & Bombay Plan (1944):</strong> Initiated structural planning for minimum living standards[cite: 1, 3].</li>
-        </ul>
-
-        <h3>3. Post-Independence Committees Matrix</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>Committee</th>
-                    <th>Year</th>
-                    <th>Methodology & Key Innovations</th>
-                    <th>Poverty Line Norms & Outcome</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Dandekar & Rath</strong></td>
-                    <td>1971</td>
-                    <td>Food-based Poverty Line Basket anchored to caloric consumption ability[cite: 1, 3].</td>
-                    <td>2,200 calories / person / day[cite: 1, 3].</td>
-                </tr>
-                <tr>
-                    <td><strong>Y.K. Alagh</strong></td>
-                    <td>1979</td>
-                    <td>Introduced separate calorie-based baskets for rural and urban areas[cite: 1, 3].</td>
-                    <td><strong>Rural:</strong> 2,400 cal/person/day[cite: 1, 3]<br><strong>Urban:</strong> 2,000 cal/person/day[cite: 1, 3].</td>
-                </tr>
-                <tr>
-                    <td><strong>Lakdawala</strong></td>
-                    <td>1993–94</td>
-                    <td>Radically expanded PLB to include clothing, shelter, transport[cite: 1, 3]. Created state-level disaggregated poverty lines updated using CPI-AL (Rural) and CPI-IW (Urban)[cite: 1, 3].</td>
-                    <td>Constructed state-specific poverty lines for a household of 5 members[cite: 1, 3].</td>
-                </tr>
-                <tr>
-                    <td><strong>Suresh Tendulkar</strong></td>
-                    <td>2005</td>
-                    <td>Shifted away from calorie consumption[cite: 1, 3]. Uniform PLB across rural/urban India[cite: 1, 3]. Included private health & education expenditure[cite: 1, 3]. Adopted <strong>Mixed Recall Period (MRP)</strong>[cite: 1, 3].</td>
-                    <td>Estimated poverty at 21.9% (2011–12)[cite: 1, 3]. Triggered the ₹32/person/day controversy[cite: 1, 3].</td>
-                </tr>
-                <tr>
-                    <td><strong>C. Rangarajan</strong></td>
-                    <td>2011–14</td>
-                    <td>Restored rural/urban separation[cite: 1, 3]. Combined Normative ICMR food norms (calories, proteins, fats) + Behavioural non-food expenditure + Ability to save (median decile)[cite: 1, 3]. Adopted <strong>Modified Mixed Recall Period (MMRP)</strong>[cite: 1, 3].</td>
-                    <td><strong>Rural:</strong> ₹4,800/HH/month (~₹32/day)[cite: 1, 3]<br><strong>Urban:</strong> ₹7,015/HH/month (~₹47/day)[cite: 1, 3].</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <div class="flow-box">
-            Evolution: Calorie Focus (Alagh/Lakdawala) ──&gt; Health & Education Focus (Tendulkar) ──&gt; MMRP + ICMR Norms (Rangarajan)[cite: 1, 3]
+        <!-- Header: Name, Date, Topic -->
+        <div class="sheet-header">
+            <div>Name: <input type="text" id="user-name" placeholder="UPSC Aspirant"></div>
+            <div>Date: <input type="text" id="note-date" placeholder="2026-07-31"></div>
+            <div>Topic: <span id="topic-title" style="color: var(--secondary-color);">Note 1: Poverty Fundamentals & Frameworks</span></div>
         </div>
 
-        <div class="bottom-controls">
-            <button class="action-btn" onclick="switchPage(1)">Previous: Note 1</button>
-            <button class="action-btn" onclick="switchPage(3)">Next: Note 3</button>
-        </div>
-    </div>
+        <!-- Main Body: Split Column Layout -->
+        <div class="sheet-body">
+            
+            <!-- Left Column: Key Points / Cues (EDITABLE TEXTAREA) -->
+            <div class="key-points-column">
+                <div class="column-header">Key Points / Cues</div>
+                <textarea class="cue-textarea" id="cue-box" oninput="saveCurrentNoteData()" placeholder="Type key recall questions, terms, or personal triggers here..."></textarea>
+            </div>
 
-    <!-- PAGE 3 -->
-    <div class="page" id="page-3">
-        <span class="section-tag">MODULE 1: POVERTY & INEQUALITY</span>
-        <h2>ONE-PAGE NOTE 3: SECC-2011 & Beneficiary Identification</h2>
+            <!-- Right Column: Details (PERMANENT TOPPER NOTES) -->
+            <div class="details-column">
+                <div class="column-header" style="background: transparent; border: none; padding: 0 0 8px 0;">Details / Topper Notes</div>
 
-        <h3>1. Population Census vs. SECC-2011</h3>
-        <ul>
-            <li><strong>Population Census:</strong> Strictly confidential data; used for macro demographic analysis[cite: 1, 3].</li>
-            <li><strong>SECC-2011:</strong> Open administrative dataset displayed publicly by Gram Sabhas to verify beneficiary eligibility for government schemes[cite: 1, 3].</li>
-            <li><strong>Nodal Administrative Bodies:</strong> Rural SECC (Ministry of Rural Development); Urban SECC (Ministry of Housing and Urban Affairs); Caste Component (Ministry of Home Affairs - RGI)[cite: 1, 3].</li>
-        </ul>
+                <!-- PAGE 1 -->
+                <div class="page active" id="page-1">
+                    <h2>ONE-PAGE NOTE 1: Poverty Fundamentals & Measurement Frameworks</h2>
+                    <h3>1. Multi-Dimensional Definition of Poverty</h3>
+                    <ul>
+                        <li><strong>Overarching Concept:</strong> Poverty is defined as the deprivation of multiple dimensions of well-being, including health, education, income, clean environment, social relations, security, and political voice[cite: 1, 3].</li>
+                        <li><strong>World Bank Definition:</strong> Pronounced deprivation in well-being, comprising inability to acquire basic goods/services, low health/education, poor sanitation, inadequate physical security, lack of voice, and insufficient opportunity[cite: 1, 3].</li>
+                    </ul>
+                    <h3>2. Selection Criteria for Measurement Standards</h3>
+                    <div class="flow-box">Dimension Choice (Subjective) ──&gt; Criteria Standard (Subjective) ──&gt; Quantifiable Application (Objective)[cite: 1, 3]</div>
+                    <ul>
+                        <li><strong>Consumption Expenditure:</strong> Chosen metric because income and wealth are volatile and suffer from severe under-reporting[cite: 1, 3].</li>
+                    </ul>
+                    <h3>3. Poverty Line Basket (PLB) & Measures</h3>
+                    <ul>
+                        <li><strong>Headcount Ratio (HCR):</strong> Counts <em>how many</em> are poor[cite: 1, 3].</li>
+                        <li><strong>Poverty Gap Index:</strong> Measures <em>how poor the poor are</em> (depth)[cite: 1, 3].</li>
+                        <li><strong>Squared Poverty Gap Index:</strong> Squares individual gaps to measure distribution severity among the poorest[cite: 1, 3].
+                            $$\text{Squared Poverty Gap} = \frac{\sum (GAP_i)^2}{N} \text{[cite: 1, 3]}$$
+                        </li>
+                    </ul>
+                </div>
 
-        <h3>2. Rural SECC Architecture & Data Breakdown</h3>
+                <!-- PAGE 2 -->
+                <div class="page" id="page-2">
+                    <h2>ONE-PAGE NOTE 2: Poverty Estimation Committees in India</h2>
+                    <h3>1. Pre-Independence Estimations</h3>
+                    <ul>
+                        <li><strong>Dadabhai Naoroji:</strong> Formulated earliest PL based on <em>Jail Cost of Living</em>[cite: 1, 3].</li>
+                    </ul>
+                    <h3>2. Post-Independence Committees Matrix</h3>
+                    <table>
+                        <thead>
+                            <tr><th>Committee</th><th>Year</th><th>Methodology</th><th>Norms & Outcome</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Dandekar & Rath</strong></td><td>1971</td><td>Caloric consumption ability[cite: 1, 3].</td><td>2,200 calories/person/day[cite: 1, 3].</td></tr>
+                            <tr><td><strong>Y.K. Alagh</strong></td><td>1979</td><td>Rural/Urban calorie split[cite: 1, 3].</td><td>Rural: 2,400 cal | Urban: 2,000 cal[cite: 1, 3].</td></tr>
+                            <tr><td><strong>Lakdawala</strong></td><td>1993</td><td>Expanded PLB; State-specific updating CPI-AL/IW[cite: 1, 3].</td><td>Disaggregated state poverty lines[cite: 1, 3].</td></tr>
+                            <tr><td><strong>S. Tendulkar</strong></td><td>2005</td><td>Shifted from calories; Uniform PLB; Added private health/education; Adopted MRP[cite: 1, 3].</td><td>21.9% poverty (2011–12)[cite: 1, 3].</td></tr>
+                            <tr><td><strong>C. Rangarajan</strong></td><td>2014</td><td>ICMR norms + non-food expenditure + savings; Adopted MMRP[cite: 1, 3].</td><td>Rural: ₹32/day | Urban: ₹47/day[cite: 1, 3].</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- PAGE 3 -->
+                <div class="page" id="page-3">
+                    <h2>ONE-PAGE NOTE 3: SECC-2011 & Beneficiary Identification</h2>
+                    <h3>1. Census vs SECC-2011</h3>
+                    <ul>
+                        <li><strong>Census:</strong> Confidential macro demographic data[cite: 1, 3].</li>
+                        <li><strong>SECC-2011:</strong> Open administrative data verified by Gram Sabhas for targeted scheme benefits[cite: 1, 3].</li>
+                    </ul>
+                    <h3>2. Rural SECC Architecture</h3>
 <pre>
-                                  ┌── Automatically Included (15.95 Lakh HHs / 0.89%)[cite: 1, 3]
-                                  │
-Rural Households (SECC 2011) ─────┼── Automatically Excluded (7.07 Crore HHs / 39.35%)[cite: 1, 3]
-                                  │
-                                  └── Deprived Households (Evaluated across D1 to D7 Parameters)[cite: 1, 3]
+                                ┌── Automatically Included (15.95 Lakh HHs / 0.89%)[cite: 1, 3]
+Rural Households (SECC 2011) ───┼── Automatically Excluded (7.07 Crore HHs / 39.35%)[cite: 1, 3]
+                                └── Deprived Households (Categorized across D1-D7 Criteria)[cite: 1, 3]
 </pre>
+                    <ul>
+                        <li><strong>Deprivation Parameters (D1-D7):</strong> D1 (Kuccha house), D2 (No adult 16-59), D3 (No literate adult >25), D4 (Disabled member), D5 (SC/ST), D6 (Female headed), D7 (Landless casual labor - 30.04%)[cite: 1, 3].</li>
+                    </ul>
+                </div>
 
-        <ul>
-            <li><strong>Automatic Inclusion Criteria (0.89% / 15.95 Lakh HHs):</strong> Automatically eligible for schemes if fulfilling any of 5 parameters:
-                <ol>
-                    <li>Households without shelter[cite: 1, 3].</li>
-                    <li>Destitute, living on alms[cite: 1, 3].</li>
-                    <li>Manual scavenger families[cite: 1, 3].</li>
-                    <li>Primitive Tribal Groups (PVTGs)[cite: 1, 3].</li>
-                    <li>Legally released bonded labour[cite: 1, 3].</li>
-                </ol>
-            </li>
-            <li style="margin-top:8px;"><strong>Automatic Exclusion Criteria (39.35% / 7.07 Crore HHs):</strong> Excluded if fulfilling any of 14 parameters (e.g., motorized vehicles, mechanized agri equipment, KCC limit > ₹50,000, govt employee, registered non-agri enterprise, earning > ₹10,000/month, paying income/professional tax, 3+ pucca rooms, refrigerator, landline, landholding limits)[cite: 1, 3].</li>
-            <li style="margin-top:8px;"><strong>Seven Deprivation Parameters (D1 to D7):</strong>
-                <ul>
-                    <li><strong>D1 (13.28% / 2.38 Cr):</strong> Households with one or less room, kuccha walls and kuccha roof[cite: 1, 3].</li>
-                    <li><strong>D2 (3.64% / 65.33 Lakh):</strong> No adult member in household between age 16 and 59[cite: 1, 3].</li>
-                    <li><strong>D3 (23.52% / 4.22 Cr):</strong> Households with no literate adult above age 25 years[cite: 1, 3].</li>
-                    <li><strong>D4 (0.40% / 7.20 Lakh):</strong> Households with differently abled member and no other able-bodied adult[cite: 1, 3].</li>
-                    <li><strong>D5 (21.56% / 3.87 Cr):</strong> SC/ST Households[cite: 1, 3].</li>
-                    <li><strong>D6 (3.86% / 69.43 Lakh):</strong> Female headed household with no adult male member between 16 and 59[cite: 1, 3].</li>
-                    <li><strong>D7 (30.04% / 5.40 Cr):</strong> Landless households deriving major part of income from manual casual labour[cite: 1, 3].</li>
-                </ul>
-            </li>
-        </ul>
+                <!-- PAGE 4 -->
+                <div class="page" id="page-4">
+                    <h2>ONE-PAGE NOTE 4: International Poverty Lines, SDGs & MPI</h2>
+                    <h3>1. World Bank International Poverty Lines</h3>
+                    <ul>
+                        <li><strong>Low-Income (Extreme Poverty):</strong> $2.15 (2017 PPP) updated to $3.00 (2021 PPP)[cite: 1, 3].</li>
+                        <li><strong>Lower-Middle Income (LMIC):</strong> $3.65 (2017 PPP) updated to $4.20 (2021 PPP)[cite: 1, 3].</li>
+                    </ul>
+                    <h3>2. Multidimensional Poverty Index (MPI)</h3>
+                    <ul>
+                        <li><strong>Global MPI (OPHI/UNDP):</strong> 3 Dimensions (Health 1/3, Education 1/3, Standard of Living 1/3) & 10 Indicators[cite: 1, 3]. Deprivation cutoff $\ge 33.33\%$[cite: 1, 3].</li>
+                        <li><strong>National MPI (NITI Aayog):</strong> Adds 2 indicators: <em>Antenatal Care</em> and <em>Bank Account</em> (Total 12 indicators)[cite: 1, 3].
+                            $$\text{MPI} = H \times A \quad (\text{Headcount Ratio } H \times \text{Intensity } A) \text{[cite: 1, 3]}$$
+                        </li>
+                    </ul>
+                </div>
 
-        <div class="bottom-controls">
-            <button class="action-btn" onclick="switchPage(2)">Previous: Note 2</button>
-            <button class="action-btn" onclick="switchPage(4)">Next: Note 4</button>
+                <!-- PAGE 5 -->
+                <div class="page" id="page-5">
+                    <h2>ONE-PAGE NOTE 5: Human Development Framework & Dynamics</h2>
+                    <h3>1. Human Development Index (HDI)</h3>
+                    <ul>
+                        <li><strong>Formula:</strong> Geometric mean of 3 dimension indices:
+                            $$\text{HDI} = \sqrt[3]{\text{Health} \times \text{Education} \times \text{Income}} \text{[cite: 1, 3]}$$
+                        </li>
+                        <li><strong>India (HDR 2022):</strong> HDI = 0.644 (Rank 134/193)[cite: 1, 3]. GII = 0.437 (Rank 108/166)[cite: 1, 3].</li>
+                    </ul>
+                    <h3>2. Poverty Alleviation Trajectory</h3>
+                    <ul>
+                        <li><strong>Extreme Poverty ($2.15 Line):</strong> Dropped from 16.22% (2011–12) to 2.35% (2022–23)[cite: 1, 3].</li>
+                        <li><strong>LMIC Line ($3.65 Line):</strong> Stands at 28.1% (2022–23)[cite: 1, 3].</li>
+                    </ul>
+                </div>
+
+                <!-- PAGE 6 -->
+                <div class="page" id="page-6">
+                    <h2>ONE-PAGE NOTE 6: Inequality Concepts, Theories & Metrics</h2>
+                    <h3>1. Theories of Inequality</h3>
+                    <ul>
+                        <li><strong>Marxist Theory:</strong> Capital returns exceed labor returns ($r > g$), causing exponential wealth concentration[cite: 1, 3].</li>
+                        <li><strong>Modern Economic Theory:</strong> Short-term inequality stems from entry barriers, firm survival disparities, and weak Rule of Law[cite: 1, 3].</li>
+                    </ul>
+                    <h3>2. Quantitative Metrics</h3>
+                    <ul>
+                        <li><strong>Gini Coefficient:</strong> $\text{Gini} = \frac{a}{a+b}$ derived from Lorenz Curve[cite: 1, 3]. India's consumption Gini improved from 28.8 (2011–12) to 25.5 (2022–23)[cite: 1, 3].</li>
+                    </ul>
+                </div>
+
+                <!-- PAGE 7 -->
+                <div class="page" id="page-7">
+                    <h2>ONE-PAGE NOTE 7: Unemployment Basics & Measurement</h2>
+                    <h3>1. Key Formulas</h3>
+                    <ul>
+                        <li><strong>Dependency Ratio:</strong> $\frac{\text{Dependents (<15 + >60)}}{\text{Working Age Population (15-59)}} \text{[cite: 2]}$</li>
+                        <li><strong>Unemployment Rate (UR):</strong> $\frac{\text{Unemployed}}{\text{Labour Force}} \times 100 \text{[cite: 2]}$</li>
+                    </ul>
+                    <h3>2. PLFS Survey Approaches</h3>
+                    <ul>
+                        <li><strong>Usual Status (PS+SS):</strong> Headline measure combining Principal Status (>182 days) & Subsidiary Status (>30 days)[cite: 2].</li>
+                        <li><strong>Current Weekly Status (CWS):</strong> Worked at least 1 hour on any day in the last 7 days[cite: 2].</li>
+                    </ul>
+                </div>
+
+                <!-- PAGE 8 -->
+                <div class="page" id="page-8">
+                    <h2>ONE-PAGE NOTE 8: Types of Unemployment & Growth</h2>
+                    <h3>1. Types of Unemployment</h3>
+                    <ul>
+                        <li><strong>Structural UE:</strong> Skill mismatch due to structural economic changes[cite: 2].</li>
+                        <li><strong>Disguised UE:</strong> Surplus labor with zero marginal productivity ($MP_L = 0$)[cite: 2].</li>
+                    </ul>
+                    <h3>2. Employment Elasticity & Employability</h3>
+                    <ul>
+                        <li><strong>Employment Elasticity:</strong> $\frac{\% \text{ Change in Employment}}{\% \text{ Change in GDP Growth}} \text{[cite: 2]}$. Dropped to ~0.18–0.20 in India[cite: 2].</li>
+                        <li><strong>Employability Gap:</strong> Economic Survey 2023-24 highlights only 51% of graduates are employable[cite: 2].</li>
+                    </ul>
+                </div>
+
+                <!-- PAGE 9 -->
+                <div class="page" id="page-9">
+                    <h2>ONE-PAGE NOTE 9: Skilling Architecture in India</h2>
+                    <h3>1. Key Institutions</h3>
+                    <ul>
+                        <li><strong>MSDE (2014):</strong> Nodal Ministry for Skill Development[cite: 2].</li>
+                        <li><strong>NCVET (2018):</strong> Overarching regulator formed by merging NSDA & NCVT[cite: 2].</li>
+                    </ul>
+                    <h3>2. Schemes</h3>
+                    <ul>
+                        <li><strong>PMKVY:</strong> Short Term Training (STT) and Recognition of Prior Learning (RPL) aligned with NSQF Levels 1-8[cite: 2].</li>
+                    </ul>
+                </div>
+
+                <!-- PAGE 10 -->
+                <div class="page" id="page-10">
+                    <h2>ONE-PAGE NOTE 10: Formalisation & Voluntary Dwarfism</h2>
+                    <h3>1. Voluntary Dwarfism</h3>
+                    <ul>
+                        <li>Stringent labour laws cause small firms to deliberately stay small or use contractual labor[cite: 2].</li>
+                        <li><strong>ASI FY23 Data:</strong> 41% of workers in formal manufacturing are contract workers[cite: 2].</li>
+                    </ul>
+                    <h3>2. Wage Hierarchy</h3>
+                    <div class="flow-box">Floor Wage ──&gt; Minimum Wage ──&gt; Fair Wage ──&gt; Living Wage[cite: 2]</div>
+                </div>
+
+                <!-- PAGE 11 -->
+                <div class="page" id="page-11">
+                    <h2>ONE-PAGE NOTE 11: Gig Economy & Classifications</h2>
+                    <h3>1. NSO Status (PLFS 2023-24)</h3>
+                    <ul>
+                        <li><strong>Self-Employed:</strong> Rural Male 59.4% | Rural Female 73.5%[cite: 2].</li>
+                        <li><strong>Regular Salaried:</strong> Urban Female 49.4% | Urban Male 46.8%[cite: 2].</li>
+                    </ul>
+                    <h3>2. Card & Krueger Nobel Experiment</h3>
+                    <ul>
+                        <li>Increasing minimum wage does <em>not</em> necessarily reduce employment; creates a consumption "lighthouse effect"[cite: 2].</li>
+                    </ul>
+                </div>
+
+                <!-- PAGE 12 -->
+                <div class="page" id="page-12">
+                    <h2>ONE-PAGE NOTE 12: Consolidation into 4 Labour Codes</h2>
+                    <h3>Amalgamation of 29 Laws into 4 Codes</h3>
+                    <ul>
+                        <li><strong>Code on Wages (2019):</strong> Statutory National Floor Wage[cite: 2].</li>
+                        <li><strong>Code on Social Security (2020):</strong> Social security funds for gig/platform workers (1-2% aggregator turnover contribution)[cite: 2].</li>
+                        <li><strong>Industrial Relations Code (2020):</strong> Standing orders threshold raised to 300 workers[cite: 2].</li>
+                        <li><strong>OSHWC Code (2020):</strong> Max 8-hour workday; Portable benefits for inter-state migrants[cite: 2].</li>
+                    </ul>
+                </div>
+
+            </div>
         </div>
+
+        <!-- Bottom Row: Summary (EDITABLE TEXTAREA) -->
+        <div class="summary-section">
+            <div class="column-header">Summary</div>
+            <textarea class="summary-textarea" id="summary-box" oninput="saveCurrentNoteData()" placeholder="Write a 2-3 sentence synthesis/summary of this page in your own words..."></textarea>
+            <div class="status-bar" id="save-status">Auto-saved to browser storage</div>
+        </div>
+
     </div>
-
-    <!-- PAGE 4 -->
-    <div class="page" id="page-4">
-        <span class="section-tag">MODULE 1: POVERTY & INEQUALITY</span>
-        <h2>ONE-PAGE NOTE 4: International Poverty Lines, SDGs & MPI</h2>
-
-        <h3>1. World Bank Income Tiers & International Poverty Lines</h3>
-        <ul>
-            <li><strong>Country Income Classification (July 1, 2025 update for FY26 - GNI Per Capita):</strong>
-                <ul>
-                    <li><strong>Low Income (LIC):</strong> \(\le \$1,135\)[cite: 1, 3].</li>
-                    <li><strong>Lower-Middle Income (LMIC):</strong> \(\$1,136 - \$4,495\)[cite: 1, 3].</li>
-                    <li><strong>Upper-Middle Income (UMIC):</strong> \(\$4,496 - \$13,935\)[cite: 1, 3].</li>
-                    <li><strong>High Income (HIC):</strong> \(&gt; \$13,935\)[cite: 1, 3].</li>
-                </ul>
-            </li>
-            <li><strong>International Poverty Lines (PPPDCE - Purchasing Power Parity):</strong>
-                <ul>
-                    <li><strong>2017 PPP Lines (2022 Data):</strong> Extreme Poverty (LIC) = $2.15; LMIC = $3.65; UMIC = $6.85[cite: 1, 3].</li>
-                    <li><strong>2021 PPP Lines (2025 Update):</strong> Extreme Poverty (LIC) = $3.00; LMIC = $4.20; UMIC = $8.30[cite: 1, 3].</li>
-                </ul>
-            </li>
-        </ul>
-
-        <h3>2. MDGs to SDGs Evolution</h3>
-        <ul>
-            <li><strong>MDGs (2000–2015):</strong> 8 goals approved by UNGA[cite: 1, 3]. MDG 1 targeted eradicating extreme poverty and hunger[cite: 1, 3].</li>
-            <li><strong>SDGs (2015–2030):</strong> Agreed at Rio+20 (2012) and adopted at UN Summit 2015 (New York)[cite: 1, 3]. Comprises 17 Goals and 169 Targets[cite: 1, 3].
-                <ul>
-                    <li><strong>SDG Goal 1:</strong> No Poverty — completely eliminate extreme poverty by 2030[cite: 1, 3].</li>
-                </ul>
-            </li>
-        </ul>
-
-        <h3>3. Multidimensional Poverty Index (MPI) Framework</h3>
-        <ul>
-            <li><strong>Global MPI (OPHI & UNDP):</strong> 3 Dimensions (Health \(\frac{1}{3}\), Education \(\frac{1}{3}\), Standard of Living \(\frac{1}{3}\)) and 10 Indicators[cite: 1, 3]. Deprivation score \(\ge 33.33\%\) (\(\frac{1}{3}\)) classifies a household as MPI Poor[cite: 1, 3]. Uses <strong>Alkire Foster Methodology</strong>:
-                $$\text{MPI} = H \times A \quad (\text{Headcount Ratio } H \times \text{Intensity of Poverty } A) \text{[cite: 1, 3]}$$
-            </li>
-            <li><strong>India's National MPI (NITI Aayog):</strong> Uses NFHS data and adds 2 indicators (Total 12 indicators)[cite: 1, 3]:</li>
-        </ul>
-
-        <table>
-            <thead>
-                <tr>
-                    <th>Dimension</th>
-                    <th>Indicator</th>
-                    <th>Global Weight</th>
-                    <th>National MPI Weight (NITI Aayog)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Health</strong> (\(\frac{1}{3}\))</td>
-                    <td>• Nutrition<br>• Child & Adolescent Mortality<br>• <em>Antenatal Care (Added)</em></td>
-                    <td>\(\frac{1}{6}\)<br>\(\frac{1}{6}\)<br>—</td>
-                    <td>\(\frac{1}{12}\)<br>\(\frac{1}{12}\)<br>\(\frac{1}{12}\)[cite: 1, 3]</td>
-                </tr>
-                <tr>
-                    <td><strong>Education</strong> (\(\frac{1}{3}\))</td>
-                    <td>• Years of Schooling<br>• School Attendance</td>
-                    <td>\(\frac{1}{6}\)<br>\(\frac{1}{6}\)</td>
-                    <td>\(\frac{1}{6}\)<br>\(\frac{1}{6}\)[cite: 1, 3]</td>
-                </tr>
-                <tr>
-                    <td><strong>Standard of Living</strong> (\(\frac{1}{3}\))</td>
-                    <td>• Cooking Fuel, Sanitation, Water, Electricity, Housing, Assets<br>• <em>Bank Account (Added)</em></td>
-                    <td>\(\frac{1}{18}\) each (6 indicators)</td>
-                    <td>\(\frac{1}{21}\) each (7 indicators)[cite: 1, 3]</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <div class="bottom-controls">
-            <button class="action-btn" onclick="switchPage(3)">Previous: Note 3</button>
-            <button class="action-btn" onclick="switchPage(5)">Next: Note 5</button>
-        </div>
-    </div>
-
-    <!-- PAGE 5 -->
-    <div class="page" id="page-5">
-        <span class="section-tag">MODULE 1: POVERTY & INEQUALITY</span>
-        <h2>ONE-PAGE NOTE 5: Human Development Framework & Indian Dynamics</h2>
-
-        <h3>1. Human Development Index (HDI) Paradigm</h3>
-        <ul>
-            <li><strong>4 Pillars:</strong> Equity, Sustainability, Productivity, Empowerment[cite: 1, 3].</li>
-            <li><strong>Approaches:</strong> Income, Welfare, Basic Needs (ILO: Health, Education, Food, Water supply, Sanitation, Housing), Capability Approach (Amartya Sen)[cite: 1, 3].</li>
-            <li><strong>HDI Calculation (UNDP HDR):</strong> Geometric mean of 3 dimension indices:
-                $$\text{HDI} = \sqrt[3]{H \times E \times S}$$
-                <em>Health (Life Expectancy at Birth), Education (Mean & Expected Years of Schooling), Standard of Living (GNI per capita PPP)</em>[cite: 1, 3].
-            </li>
-            <li><strong>India HDR 2022 Statistics:</strong>
-                <ul>
-                    <li><strong>HDI Value:</strong> 0.644 (Rank 134/193 - Medium HDI)[cite: 1, 3].</li>
-                    <li><strong>IHDI (Inequality-adjusted HDI):</strong> 0.444 (31.1% loss due to inequality)[cite: 1, 3].</li>
-                    <li><strong>GDI (Gender Development Index):</strong> \(\frac{\text{Female HDI}}{\text{Male HDI}} = \frac{0.582}{0.684} = 0.862\) (Group 5)[cite: 1, 3].</li>
-                    <li><strong>GII (Gender Inequality Index):</strong> 0.437 (Rank 108/166)[cite: 1, 3]. Dimensions: Health (MMR, Adolescent birth rate), Empowerment (Parliamentary seats, Secondary education), Labour market participation[cite: 1, 3].</li>
-                </ul>
-            </li>
-        </ul>
-
-        <h3>2. India's Poverty Reduction Dynamics</h3>
-        <ul>
-            <li><strong>Tendulkar Poverty Line Trajectory:</strong>
-                <p>1950 (56%) &rarr; 1993–94 (45%) &rarr; 2004–05 (37.2%) &rarr; 2009–10 (29.8%) &rarr; 2011–12 (21.9%) &rarr; <strong>2022–23: 0.9%</strong>[cite: 1, 3].</p>
-            </li>
-            <li><strong>World Bank Poverty & Equity Brief (India Updates):</strong>
-                <ul>
-                    <li><strong>$2.15 Line (Extreme Poverty):</strong> 16.22% (2011–12) &rarr; <strong>2.35%</strong> (~33.6M people in 2022–23)[cite: 1, 3].</li>
-                    <li><strong>$3.00 Line (2021 PPP):</strong> 27.12% (2011–12) &rarr; <strong>5.25%</strong> (~75.2M people in 2022–23)[cite: 1, 3].</li>
-                    <li><strong>Rural Extreme Poverty ($2.15):</strong> 18.4% (FY12) &rarr; 2.8% (FY21) &rarr; <strong>1.1%</strong> (FY23)[cite: 1, 3].</li>
-                    <li><strong>Urban Extreme Poverty ($2.15):</strong> 10.7% (FY12) &rarr; <strong>1.1%</strong> (FY23)[cite: 1, 3].</li>
-                    <li><strong>LMIC Line ($3.65 Line):</strong> Declined from 53% to <strong>28.1%</strong> in 2022–23 (Rural: 61.8% &rarr; 28.1%; Urban: 43.5% &rarr; 17.2%)[cite: 1, 3].</li>
-                    <li><strong>Key Drivers:</strong> 5 States (UP, MP, Maharashtra, WB, Bihar) hosted 65% of extreme poor in 2011–12 and contributed \(\frac{2}{3}\text{rd}\) of overall poverty reduction by 2022–23[cite: 1, 3].</li>
-                </ul>
-            </li>
-        </ul>
-
-        <div class="bottom-controls">
-            <button class="action-btn" onclick="switchPage(4)">Previous: Note 4</button>
-            <button class="action-btn" onclick="switchPage(6)">Next: Note 6</button>
-        </div>
-    </div>
-
-    <!-- PAGE 6 -->
-    <div class="page" id="page-6">
-        <span class="section-tag">MODULE 1: POVERTY & INEQUALITY</span>
-        <h2>ONE-PAGE NOTE 6: Inequality Concepts, Theories & Metrics</h2>
-
-        <h3>1. Causes & Theories of Inequality</h3>
-        <ul>
-            <li><strong>Manifestations:</strong> Economic, Social, Political[cite: 1, 3]. Driven by natural factors, political access, and the <strong>Resource Curse</strong> (resource-rich areas failing to develop due to misgovernance and fractured society)[cite: 1, 3].</li>
-            <li><strong>Marxist Theory (Karl Marx - <em>Das Kapital</em>):</strong> Society splits into Bourgeoisie (capital/land owners) and Proletariat (laborers)[cite: 1, 3]. Rate of return on capital exceeds return on labor (\(r &gt; g\)), causing profits to grow exponentially while wages remain stagnant[cite: 1, 3].</li>
-            <li><strong>Modern Economic Theory:</strong> Contradicts Marx over the long run; wages and profits grow at comparable rates[cite: 1, 3]. Short-term inequality stems from failure of firm survival, entry barriers, unfair practices, and lack of <strong>Rule of Law</strong>[cite: 1, 3].</li>
-        </ul>
-
-        <h3>2. Quantitative Measurement of Inequality</h3>
-        <ul>
-            <li><strong>Lorenz Curve:</strong> Graphs cumulative percentage of total national income against cumulative percentage of population[cite: 1, 3].</li>
-            <li><strong>Gini Coefficient:</strong> Derived from the Lorenz Curve:
-                $$\text{Gini Coefficient} = \frac{a}{a + b}$$
-                <em>Where \(a\) is the area between Line of Absolute Equality and Lorenz Curve, and \(a+b\) is the total area under the Line of Equality</em>[cite: 1, 3].
-                <ul>
-                    <li>\(\text{Gini} = 0\): Perfect Equality[cite: 1, 3].</li>
-                    <li>\(\text{Gini} = 1\): Perfect Inequality[cite: 1, 3].</li>
-                </ul>
-            </li>
-            <li><strong>India's Consumption Gini Index:</strong> Improved from <strong>28.8</strong> (2011–12) to <strong>25.5</strong> (2022–23) based on HCES data, placing India among the world's most equal societies in consumption[cite: 1, 3].</li>
-        </ul>
-
-        <h3>3. Growth Models Comparison</h3>
-        <div class="flow-box">
-            Trickle-Down Model: Focus High Growth ──&gt; Collect Tax Revenue ──&gt; Redistribution to Passive Recipients[cite: 1, 3]<br>
-            Inclusive Growth Model: Skill & Capacity Building ──&gt; Jobs & Opportunities ──&gt; Active Economic Contributors[cite: 1, 3]
-        </div>
-
-        <div class="bottom-controls">
-            <button class="action-btn" onclick="switchPage(5)">Previous: Note 5</button>
-            <button class="action-btn" onclick="switchPage(7)">Next: Note 7 (Unemployment)</button>
-        </div>
-    </div>
-
-    <!-- MODULE 2: UNEMPLOYMENT, SKILLING & LABOUR LAWS -->
-
-    <!-- PAGE 7 -->
-    <div class="page" id="page-7">
-        <span class="section-tag">MODULE 2: UNEMPLOYMENT & LABOUR</span>
-        <h2>ONE-PAGE NOTE 7: Unemployment Fundamentals & Measurement Metrics</h2>
-        
-        <h3>1. Core Concepts & Demographic Framework</h3>
-        <ul>
-            <li><strong>Unemployment Definition:</strong> Refers to people who are capable of working and actively seeking work, but are unable to find work[cite: 2].</li>
-            <li><strong>Working Age Population:</strong> Defined in terms of age only[cite: 2]. Varies across texts; ILO benchmark is 15–59 years (or 18–59 years)[cite: 2].
-                $$\text{Dependents} = \text{Population below 15 years} + \text{Population above 60 years} \text{[cite: 2]}$$
-                $$\text{Dependency Ratio} = \frac{\text{Non-Working Age Population (Dependents)}}{\text{Working Age Population}} \text{[cite: 2]}$$
-            </li>
-            <li><strong>Labour Force & Work Force Metrics:</strong>
-                <ul>
-                    <li><strong>Labour Force (LF):</strong> Includes working-age population capable of working and actively seeking work (Employed + Unemployed)[cite: 2].</li>
-                    <li><strong>Labour Force Participation Rate (LFPR):</strong>
-                        $$\text{LFPR} = \frac{\text{Labour Force}}{\text{Total Population}} \text{[cite: 2]}$$
-                    </li>
-                    <li><strong>Worker Population Ratio (WPR):</strong>
-                        $$\text{WPR} = \frac{\text{Total Workers}}{\text{Total Population}} \times 1000 \text{[cite: 2]}$$
-                    </li>
-                    <li><strong>Unemployment Rate (UR):</strong>
-                        $$\text{Unemployment Rate} = \frac{\text{No. of Unemployed Persons}}{\text{Labour Force}} \text{[cite: 2]}$$
-                    </li>
-                </ul>
-            </li>
-        </ul>
-
-        <h3>2. Demographic Dividend & Policy Dilemma</h3>
-        <ul>
-            <li><strong>Demographic Dividend:</strong> Expected economic growth derived from a favorable population structure (young & healthy working-age population)[cite: 2]. India's median age is 29 years, offering a window of opportunity up to 2055–2060[cite: 2].</li>
-            <li><strong>Demographic Dividend vs. Disaster:</strong> High working-age population + Skilling + Employment = <em>Demographic Dividend</em>[cite: 2]. No skilling + No job opportunities = <em>Demographic Disaster</em>[cite: 2].</li>
-        </ul>
-
-        <h3>3. Unemployment Measurement Methodologies in India</h3>
-        <ul>
-            <li><strong>Measuring Agencies:</strong> MoSPI (NSSO / CSO / NSO / NSC) conducts sample surveys using representative samples across regions, gender, and caste[cite: 2]. Randomised Control Trials (RCTs) are used in sampling to minimize bias[cite: 2].</li>
-            <li><strong>Periodic Labour Force Survey (PLFS) Approaches:</strong>
-                <ul>
-                    <li><strong>Usual Status (PS + SS):</strong> Combines Principal Status (in LF > 182 days) and Subsidiary Status (worked > 30 days)[cite: 2]. Represents the headline unemployment measure[cite: 2].</li>
-                    <li><strong>Current Weekly Status (CWS):</strong> Person is employed if engaged in work for at least 1 hour on any single day in the preceding 7 days[cite: 2]. Captures seasonal fluctuations[cite: 2].</li>
-                    <li><strong>Current Daily Status (CDS):</strong> Measures daily intensity (4+ hours = full day; 1–4 hours = half day; < 1 hour = unemployed)[cite: 2]. Used by CMIE[cite: 2].</li>
-                </ul>
-            </li>
-        </ul>
-
-        <div class="flow-box">
-            Measurement Rigor (Intensity): Unemployment Rate (CDS) &gt; UR (CWS) &gt; UR (Usual Status)[cite: 2]
-        </div>
-
-        <div class="bottom-controls">
-            <button class="action-btn" onclick="switchPage(6)">Previous: Note 6</button>
-            <button class="action-btn" onclick="switchPage(8)">Next: Note 8</button>
-        </div>
-    </div>
-
-    <!-- PAGE 8 -->
-    <div class="page" id="page-8">
-        <span class="section-tag">MODULE 2: UNEMPLOYMENT & LABOUR</span>
-        <h2>ONE-PAGE NOTE 8: Types of Unemployment & Sectoral Growth Dynamics</h2>
-
-        <h3>1. Types & Taxonomy of Unemployment</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>Type</th>
-                    <th>Defining Characteristics</th>
-                    <th>Interventionist / Market Solutions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Structural UE</strong></td>
-                    <td>Mismatch between skills demanded and possessed due to structural shifts in the economy (e.g., Agri to Services, Petrol to EVs, AI adoption)[cite: 2]. Caused by occupational, industrial, or geographical immobility[cite: 2].</td>
-                    <td><strong>Interventionist:</strong> Education reform, skilling/retraining subsidies, relocation incentives[cite: 2].<br><strong>Free Market:</strong> Reducing strict wage rigidities[cite: 2].</td>
-                </tr>
-                <tr>
-                    <td><strong>Seasonal UE</strong></td>
-                    <td>Unemployment due to seasonal patterns in industries like agriculture, tourism, and construction[cite: 2].</td>
-                    <td>Encouraging off-season employment, multi-cropping, adapting unemployment insurance[cite: 2].</td>
-                </tr>
-                <tr>
-                    <td><strong>Frictional UE</strong></td>
-                    <td>Temporary unemployment while transitioning between jobs or entering the job market[cite: 2]. Caused by information asymmetry[cite: 2].</td>
-                    <td>Improving job portals, public employment exchanges, transparent information dissemination[cite: 2].</td>
-                </tr>
-                <tr>
-                    <td><strong>Disguised UE</strong></td>
-                    <td>Surplus labor where the marginal productivity of additional workers is zero ($MP_L = 0$)[cite: 2]. Commonly seen in agriculture[cite: 2].</td>
-                    <td>Shifting excess labor from agriculture to manufacturing and labor-intensive services[cite: 2].</td>
-                </tr>
-                <tr>
-                    <td><strong>Voluntary UE</strong></td>
-                    <td>Individuals choosing to stay unemployed despite job offers due to low dignity of labor, waiting for better offers, or lucrative benefits[cite: 2].</td>
-                    <td>Rationalizing reservation wages, improving job matching quality[cite: 2].</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h3>2. Growth-Employment Linkages & The "Jobless Growth" Debate</h3>
-        <ul>
-            <li><strong>Employment Elasticity:</strong> Responsiveness of employment growth relative to GDP growth:
-                $$\text{Employment Elasticity} = \frac{\% \text{ Change in Employment}}{\% \text{ Change in GDP Growth}} \text{[cite: 2]}$$
-                High elasticity denotes labor-intensive growth; low elasticity denotes productivity/capital-intensive growth[cite: 2]. India's overall employment elasticity dropped from 0.57 (1970s) to ~0.18–0.20 (2000s)[cite: 2].
-            </li>
-            <li><strong>Critical Assessment of Jobless Growth:</strong>
-                <ul>
-                    <li>If employment growth rate = population growth rate, Unemployment Rate remains constant[cite: 2].</li>
-                    <li>Graduate employability gap: Economic Survey 2023-24 highlights that only <strong>51% of graduates are employable</strong>[cite: 2]. High youth unemployment often reflects skill mismatch and voluntary waiting for high-aspiration jobs[cite: 2].</li>
-                </ul>
-            </li>
-        </ul>
-
-        <h3>3. Structural Transformation Trajectory in India</h3>
-        <ul>
-            <li><strong>GDP Share vs Employment Share:</strong>
-                <ul>
-                    <li><strong>Agriculture:</strong> GDP share declined from 59% (1950) to ~15%[cite: 2]; Employment share remains disproportionately high at ~43–45%[cite: 2]. Low employment elasticity[cite: 2].</li>
-                    <li><strong>Industry/Manufacturing:</strong> GDP share ~27–30%[cite: 2]; Employment share ~23–25%[cite: 2]. High employment elasticity (engine of labor absorption)[cite: 2].</li>
-                    <li><strong>Services:</strong> GDP share ~55–60%[cite: 2]; Employment share ~30%[cite: 2]. Low employment elasticity (productivity-driven growth)[cite: 2].</li>
-                </ul>
-            </li>
-        </ul>
-
-        <div class="bottom-controls">
-            <button class="action-btn" onclick="switchPage(7)">Previous: Note 7</button>
-            <button class="action-btn" onclick="switchPage(9)">Next: Note 9</button>
-        </div>
-    </div>
-
-    <!-- PAGE 9 -->
-    <div class="page" id="page-9">
-        <span class="section-tag">MODULE 2: UNEMPLOYMENT & LABOUR</span>
-        <h2>ONE-PAGE NOTE 9: Skilling Architecture & National Frameworks</h2>
-
-        <h3>1. Evolution of Skilling Policy Architecture</h3>
-        <div class="flow-box">
-            Pre-2014: Dispersed Across Ministries (Policy on Skill Devt 2009 & NSDC) ──&gt; Post-2014: Dedicated Ministry (MSDE - 2014)[cite: 2]
-        </div>
-        <ul>
-            <li><strong>NSDC (National Skill Development Corporation):</strong> Established as a PPP (51% Private, 49% Government) to fund private skill training initiatives[cite: 2].</li>
-            <li><strong>NCVET (National Council for Vocational Education and Training):</strong> Formed in 2018 by merging NSDA (National Skill Development Agency) and NCVT[cite: 2]. Acts as an overarching non-regulatory regulator for vocational education[cite: 2].</li>
-        </ul>
-
-        <h3>2. Flagship Schemes & Implementations</h3>
-        <ul>
-            <li><strong>National Skill Development Mission (NSDM):</strong> Launched with 7 functional sub-missions:
-                <ol>
-                    <li>Institutional Training[cite: 2]</li>
-                    <li>Infrastructure[cite: 2]</li>
-                    <li>Convergence[cite: 2]</li>
-                    <li>Trainers[cite: 2]</li>
-                    <li>Overseas Employment[cite: 2]</li>
-                    <li>Sustainable Livelihoods[cite: 2]</li>
-                    <li>Leveraging Public Infrastructure[cite: 2]</li>
-                </ol>
-            </li>
-            <li><strong>Pradhan Mantri Kaushal Vikas Yojana (PMKVY):</strong>
-                <ul>
-                    <li><strong>Short Term Training (STT):</strong> Targeted at school dropouts and unemployed youth; includes soft skills, financial literacy, and placement assistance[cite: 2].</li>
-                    <li><strong>Recognition of Prior Learning (RPL):</strong> Assesses and certifies informal prior skills aligned with NSQF standards[cite: 2]. Includes bridge courses for skill gaps[cite: 2].</li>
-                </ul>
-            </li>
-            <li><strong>National Skills Qualifications Framework (NSQF):</strong> Competency-based qualification framework structured from Levels 1 to 8 based on Process, Professional Knowledge, Professional Skills, Core Skills, and Responsibility[cite: 2].</li>
-        </ul>
-
-        <h3>3. Unified Digital Portal Convergence</h3>
-<pre>
-                        ┌── e-Shram Portal (MoLE - Unorganised Workers Database)[cite: 2]
-                        ├── Udyam Portal (MoMSME - Enterprise Registration)[cite: 2]
-National Career Service ┼── Skill India Digital Portal (MSDE)[cite: 2]
-(MoLE Platform)         └── ASEEM Portal (Aatmanirbhar Skilled Employee Employer Mapping)[cite: 2]
-</pre>
-
-        <div class="bottom-controls">
-            <button class="action-btn" onclick="switchPage(8)">Previous: Note 8</button>
-            <button class="action-btn" onclick="switchPage(10)">Next: Note 10</button>
-        </div>
-    </div>
-
-    <!-- PAGE 10 -->
-    <div class="page" id="page-10">
-        <span class="section-tag">MODULE 2: UNEMPLOYMENT & LABOUR</span>
-        <h2>ONE-PAGE NOTE 10: Formalisation, Dwarfism & Labour Law Deregulation</h2>
-
-        <h3>1. Dualism in the Indian Labour Market</h3>
-        <ul>
-            <li><strong>Organised vs. Unorganised Sectors:</strong> Organised firms are registered enterprises governed by formal statutory provisions[cite: 2]. Unorganised firms operate with low regulatory visibility[cite: 2].</li>
-            <li><strong>Formal vs. Informal Employment:</strong>
-                <ul>
-                    <li><strong>Formal Employment:</strong> Employment with well-defined contracts, employment rights, social security (EPF, ESI), and statutory protection[cite: 2].</li>
-                    <li><strong>Informal Employment:</strong> Work without formal contracts, guaranteed benefits, or social security, existing across both unorganised and organised firms[cite: 2].</li>
-                </ul>
-            </li>
-            <li><strong>NCEUS Criteria for Informality:</strong> Firms employing < 10 workers (without electricity) or < 20 workers (with electricity) are categorized as informal[cite: 2].</li>
-        </ul>
-
-        <h3>2. Perverse Incentives & "Voluntary Dwarfism"</h3>
-        <ul>
-            <li><strong>The Dwarfism Phenomenon:</strong> Stringent compliance requirements (labour regulations, environmental norms, tax audits) create heavy compliance costs as firms grow larger[cite: 2].</li>
-            <li><strong>Consequence:</strong> Small firms choose to "stay small" (voluntary dwarfism) or rely heavily on contract workers rather than hiring regular formal workers[cite: 2].
-                <blockquote>
-                    <strong>Key Statistic (ASI FY23):</strong> <strong>41% of workers</strong> in the formal manufacturing sector are employed on a contract basis[cite: 2]. Small firms (< 100 workers) constitute 80% of formal manufacturing firms but contribute only 14% to employment[cite: 2].
-                </blockquote>
-            </li>
-            <li><strong>Policy Shift:</strong> Economic Survey emphasizes the need to "nourish dwarfs to become giants" by replacing size-based incentives with time-bound (sunset clause) incentives[cite: 2].</li>
-        </ul>
-
-        <h3>3. Rationalisation of Wages & Wage Types</h3>
-        <ul>
-            <li><strong>Minimum Wage:</strong> Legally mandated wage level set by authorities, varying by region, skill level, and scheduled employments[cite: 2]. (India has historically had 1,915 scheduled minimum wage categories)[cite: 2].</li>
-            <li><strong>Floor Wage:</strong> Statutory minimum threshold below which no state government can set its minimum wage[cite: 2].</li>
-            <li><strong>Living Wage:</strong> Subjective benchmark required for a worker to maintain a dignified standard of living (housing, health, education)[cite: 2].</li>
-            <li><strong>Fair Wage:</strong> Wage positioned between minimum wage and living wage, balancing employer capacity with worker welfare[cite: 2].</li>
-        </ul>
-
-        <div class="bottom-controls">
-            <button class="action-btn" onclick="switchPage(9)">Previous: Note 9</button>
-            <button class="action-btn" onclick="switchPage(11)">Next: Note 11</button>
-        </div>
-    </div>
-
-    <!-- PAGE 11 -->
-    <div class="page" id="page-11">
-        <span class="section-tag">MODULE 2: UNEMPLOYMENT & LABOUR</span>
-        <h2>ONE-PAGE NOTE 11: Workforce Classifications, Gig Economy & Minimum Wages</h2>
-
-        <h3>1. Official Workforce Classifications (Census & NSO)</h3>
-        <ul>
-            <li><strong>Census Categories (Occupational):</strong>
-                <ul>
-                    <li><strong>Cultivators:</strong> Cultivate self-owned or leased land[cite: 2].</li>
-                    <li><strong>Agricultural Labourers:</strong> Work on another person's land for cash/kind wages without lease/risk[cite: 2].</li>
-                    <li><strong>Household Industry Workers:</strong> Engage in home-based processing/production[cite: 2].</li>
-                    <li><strong>Other Workers:</strong> All remaining economic workers (govt servants, factory workers, teachers, trade/services)[cite: 2].</li>
-                </ul>
-            </li>
-            <li><strong>Census Work Intensity:</strong> <em>Main Worker</em> (works $\ge 183$ days/year) vs. <em>Marginal Worker</em> (works < 183 days/year)[cite: 2].</li>
-            <li><strong>NSO Employment Status Categories (PLFS 2023-24):</strong>
-                <ul>
-                    <li><strong>Self-Employed:</strong> Own-account workers, employers, and unpaid helpers in household enterprises[cite: 2].
-                        <ul>
-                            <li>Rural: Male 59.4%, Female 73.5%[cite: 2] | Urban: Male 39.8%, Female 42.3%[cite: 2].</li>
-                        </ul>
-                    </li>
-                    <li><strong>Regular Wage/Salaried:</strong> Recurrent wages/salaries[cite: 2].
-                        <ul>
-                            <li>Rural: Male 15.8%, Female 7.8%[cite: 2] | Urban: Male 46.8%, Female 49.4%[cite: 2].</li>
-                        </ul>
-                    </li>
-                    <li><strong>Casual Labour:</strong> Daily or periodic contract work[cite: 2].
-                        <ul>
-                            <li>Rural: Male 24.9%, Female 18.7%[cite: 2] | Urban: Male 13.4%, Female 8.3%[cite: 2].</li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-
-        <h3>2. Gig & Platform Economy</h3>
-        <ul>
-            <li><strong>Gig Worker:</strong> A person who performs work or participates in a work arrangement outside the traditional employer-employee relationship (e.g., freelancers, part-time professors)[cite: 2].</li>
-            <li><strong>Platform Worker:</strong> A worker whose work arrangement is accessed through an online platform/aggregator (e.g., delivery partners, ride-sharing drivers)[cite: 2]. All platform workers are gig workers, but not all gig workers are platform workers[cite: 2].</li>
-        </ul>
-
-        <h3>3. Card & Krueger Natural Experiment (Nobel Prize 2021)</h3>
-        <ul>
-            <li><strong>Core Finding:</strong> Classical economic theory suggested that raising minimum wages reduces employment[cite: 2]. Card & Krueger examined New Jersey's minimum wage hike (from $4.25 to $5.05) vs. Pennsylvania[cite: 2].</li>
-            <li><strong>Empirical Result:</strong> Raising the minimum wage did <em>not</em> lead to job losses[cite: 2]. It created a "lighthouse effect," boosting low-end consumption without harming employment elasticity[cite: 2].</li>
-        </ul>
-
-        <div class="bottom-controls">
-            <button class="action-btn" onclick="switchPage(10)">Previous: Note 10</button>
-            <button class="action-btn" onclick="switchPage(12)">Next: Note 12</button>
-        </div>
-    </div>
-
-    <!-- PAGE 12 -->
-    <div class="page" id="page-12">
-        <span class="section-tag">MODULE 2: UNEMPLOYMENT & LABOUR</span>
-        <h2>ONE-PAGE NOTE 12: Consolidation into the 4 Labour Codes</h2>
-
-        <h3>Overview: Amalgamation of 29 Central Labour Laws into 4 Codes</h3>
-
-        <h3>1. Code on Wages, 2019</h3>
-        <ul>
-            <li><strong>Consolidates:</strong> 4 laws (Equal Remuneration Act, Minimum Wages Act, Payment of Wages Act, Payment of Bonus Act)[cite: 2].</li>
-            <li><strong>Key Provision:</strong> Introduces a statutory <strong>National Floor Level Minimum Wage</strong> set by the Central Government[cite: 2]. States cannot set minimum wages below this floor wage[cite: 2]. Universalizes minimum wage protection to all workers across formal and informal sectors[cite: 2].</li>
-        </ul>
-
-        <h3>2. Code on Social Security, 2020</h3>
-        <ul>
-            <li><strong>Consolidates:</strong> 9 laws (EPF Act, ESI Act, Maternity Benefit Act, Gratuity Act, etc.)[cite: 2].</li>
-            <li><strong>Social Security Provisions:</strong> Empowers Central/State governments to notify welfare funds for gig, platform, and unorganised workers[cite: 2]. Aggregators must contribute 1–2% of their annual turnover toward social security schemes[cite: 2].</li>
-            <li><strong>Institutional Framework:</strong> Central Board of Trustees (EPF), ESIC, and National/State Social Security Boards[cite: 2].</li>
-        </ul>
-
-        <h3>3. Industrial Relations Code, 2020</h3>
-        <ul>
-            <li><strong>Consolidates:</strong> 3 laws (Industrial Disputes Act, Trade Unions Act, Industrial Employment Standing Orders Act)[cite: 2].</li>
-            <li><strong>Negotiating Union:</strong> Requires a single trade union with $\ge 51\%$ worker support to act as the sole negotiating union[cite: 2]. If multiple unions exist, a negotiating council is formed with unions having $\ge 20\%$ membership[cite: 2].</li>
-            <li><strong>Standing Orders Threshold:</strong> Raised from 100 workers to <strong>300 workers</strong>[cite: 2]. Establishments with up to 300 workers can lay off, retrench, or close without prior government approval[cite: 2].</li>
-        </ul>
-
-        <h3>4. Code on Occupational Safety, Health and Working Conditions (OSHWC), 2020</h3>
-        <ul>
-            <li><strong>Consolidates:</strong> 13 laws governing workplace safety and health[cite: 2].</li>
-            <li><strong>Coverage:</strong> Applies to factories with at least 20 workers (with power) or 40 workers (without power)[cite: 2].</li>
-            <li><strong>Inter-State Migrant Workers:</strong> Expands definition to include workers who move independently across states for employment earning up to ₹18,000/month[cite: 2]. Ensures portability of benefits (PDS ration, building construction welfare fund) and journey allowance[cite: 2].</li>
-            <li><strong>Working Hours & Gender Rights:</strong> Standardizes daily work hours to a maximum of 8 hours/day[cite: 2]. Grants legal right to women to work in all establishments at night with their explicit consent and safety provisions[cite: 2].</li>
-        </ul>
-
-        <div class="bottom-controls">
-            <button class="action-btn" onclick="switchPage(11)">Previous: Note 11</button>
-            <button class="action-btn" disabled>Next</button>
-        </div>
-    </div>
-
 </div>
 
 <script>
+    let currentPage = 1;
+
+    const topicTitles = {
+        1: "Note 1: Poverty Fundamentals & Frameworks",
+        2: "Note 2: Poverty Estimation Committees",
+        3: "Note 3: SECC-2011 & Beneficiary Targeting",
+        4: "Note 4: International Poverty Lines & MPI",
+        5: "Note 5: HDI & Poverty Reduction Dynamics",
+        6: "Note 6: Inequality Concepts & Metrics",
+        7: "Note 7: Unemployment Measurement Metrics",
+        8: "Note 8: UE Types & Growth Elasticity",
+        9: "Note 9: National Skilling Architecture",
+        10: "Note 10: Formalisation & Dwarfism",
+        11: "Note 11: Gig Economy & Workforce Status",
+        12: "Note 12: Consolidation of 4 Labour Codes"
+    };
+
+    // Load data from localStorage on load
+    window.onload = function() {
+        // Set Default Date
+        document.getElementById('note-date').value = new Date().toISOString().split('T')[0];
+        
+        // Restore name if saved
+        if (localStorage.getItem('cornell_user_name')) {
+            document.getElementById('user-name').value = localStorage.getItem('cornell_user_name');
+        }
+
+        document.getElementById('user-name').addEventListener('input', (e) => {
+            localStorage.setItem('cornell_user_name', e.target.value);
+        });
+
+        loadNoteData(1);
+    };
+
     function switchPage(pageNum) {
+        // Save current user notes before switching
+        saveCurrentNoteData();
+
+        currentPage = pageNum;
+
         // Hide all pages
-        const pages = document.querySelectorAll('.page');
-        pages.forEach(page => page.classList.remove('active'));
+        document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+        document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
 
-        // Deactivate all navigation buttons
-        const buttons = document.querySelectorAll('.nav-btn');
-        buttons.forEach(btn => btn.classList.remove('active'));
-
-        // Activate selected page and button
+        // Show selected page
         document.getElementById('page-' + pageNum).classList.add('active');
         document.getElementById('btn-' + pageNum).classList.add('active');
 
-        // Scroll gracefully to top
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        // Update Topic Title
+        document.getElementById('topic-title').innerText = topicTitles[pageNum];
 
-        // Trigger MathJax re-render for LaTeX equations
+        // Load saved Cues and Summary for the active page
+        loadNoteData(pageNum);
+
+        // Re-render MathJax equations
         if (window.MathJax) {
             MathJax.typesetPromise();
         }
+    }
+
+    function saveCurrentNoteData() {
+        const cueText = document.getElementById('cue-box').value;
+        const summaryText = document.getElementById('summary-box').value;
+
+        localStorage.setItem(`cornell_cue_note_${currentPage}`, cueText);
+        localStorage.setItem(`cornell_summary_note_${currentPage}`, summaryText);
+
+        const status = document.getElementById('save-status');
+        status.innerText = "Saved!";
+        setTimeout(() => { status.innerText = "Auto-saved to browser storage"; }, 1000);
+    }
+
+    function loadNoteData(pageNum) {
+        const savedCue = localStorage.getItem(`cornell_cue_note_${pageNum}`) || "";
+        const savedSummary = localStorage.getItem(`cornell_summary_note_${pageNum}`) || "";
+
+        document.getElementById('cue-box').value = savedCue;
+        document.getElementById('summary-box').value = savedSummary;
     }
 </script>
 
